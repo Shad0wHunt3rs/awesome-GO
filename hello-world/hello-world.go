@@ -5,3 +5,4 @@ import "fmt" // Imports the 'fmt' package, which contains functions for formatte
 func main() { // Declares the main function. Execution of a Go program starts from 'main'.
     fmt.Println("Hello World!") // Calls the Println function from the fmt package to print "Hello World!" to the console with a newline.
 } // Closes the main function.
+
