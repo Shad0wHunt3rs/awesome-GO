@@ -1,3 +1,19 @@
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Go Basic Data Types](#go-basic-data-types)
+  - [Boolean Type](#boolean-type)
+  - [String Type](#string-type)
+  - [Signed Integers](#signed-integers)
+  - [Unsigned Integers](#unsigned-integers)
+  - [Aliases](#aliases)
+  - [Floating-Point Numbers](#floating-point-numbers)
+  - [Complex Numbers](#complex-numbers)
+
+
+
+
+
 # Go Basic Data Types
 
 This document provides an overview of the basic data types in Go, including their sizes, ranges, and usage.

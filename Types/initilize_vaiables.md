@@ -1,4 +1,18 @@
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+  - [**1. Using `var` with explicit type**](#1-using-var-with-explicit-type)
+  - [**2. Using `var` without explicit type (type inference)**](#2-using-var-without-explicit-type-type-inference)
+  - [**3. Short variable declaration (`:=`)**](#3-short-variable-declaration-)
+  - [**4. Declaring multiple variables at once**](#4-declaring-multiple-variables-at-once)
+  - [**5. Zero-value initialization**](#5-zero-value-initialization)
+    - [**Summary Table**](#summary-table)
+
+
+
 Go has several ways to initialize variables, depending on the scope, type, and whether you want to specify the type explicitly or let Go infer it.
+
+
 
 
 ## **1. Using `var` with explicit type**

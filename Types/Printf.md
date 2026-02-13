@@ -144,4 +144,24 @@ func main() {
 
 ---
 
+Here are additional important fmt format specifiers in Go:
+
+| Specifier | Description                                 | Example             |
+| --------- | ------------------------------------------- | ------------------- |
+| `%b`      | Binary representation (int)                 | 101010              |
+| `%o`      | Octal representation                        | 52                  |
+| `%O`      | Octal with `0o` prefix                      | 0o52                |
+| `%x`      | Lowercase hexadecimal                       | 2a                  |
+| `%X`      | Uppercase hexadecimal                       | 2A                  |
+| `%e`      | Scientific notation (lowercase)             | 3.140000e+00        |
+| `%E`      | Scientific notation (uppercase)             | 3.140000E+00        |
+| `%g`      | Compact float format (chooses `%e` or `%f`) | 3.14                |
+| `%G`      | Compact float (uppercase)                   | 3.14                |
+| `%p`      | Pointer address                             | 0xc0000140a0        |
+| `%q`      | Quoted string                               | `"Hello"`           |
+| `%+v`     | Struct with field names                     | `{Name:Ali Age:20}` |
+| `%T`      | Type of the value                           | int                 |
+| `%%`      | Prints a literal `%` sign                   | %                   |
+| `%U`      | Unicode format (`U+XXXX`)                   | U+0041              |
+
 
