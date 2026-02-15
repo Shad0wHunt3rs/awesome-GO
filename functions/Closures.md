@@ -80,6 +80,35 @@ x = 20
 
 ---
 
+### why they can “remember” values even after the outer function has finished.
+
+```go 
+func counter() func() int {
+    count := 0          // count lives in the heap for the closure
+    return func() int {  // this func closes over count
+        count++
+        return count
+    }
+}
+
+func main() {
+    c := counter()
+    fmt.Println(c()) // 1
+    fmt.Println(c()) // 2
+    fmt.Println(c()) // 3
+}
+```
+
+**How it works in memory**
+
+* Normally, local variables are on the stack and vanish when the function ends.
+* But Go detects that a closure needs the variable after the function ends, so it moves that variable to the heap.
+* That’s why the closure can retain the value across calls.
+
+>[!NOTE]
+> unlike cpp and c you donot have to explicitlly free the memory it is done by go run
+
+
 **Summary**
 
 * A closure is a **function that remembers variables from its surrounding scope**.
