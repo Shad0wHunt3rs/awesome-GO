@@ -95,6 +95,26 @@ Here:
 
 ⚠️ Use this carefully — overuse can reduce readability.
 
+```go 
+func getCoords() (x, y int) {
+	// x and y are initialized with zero values
+
+	return // automatically returns x and y
+}
+```
+
+Is the same as:
+
+```go
+func getCoords() (int, int) {
+	var x int
+	var y int
+	return x, y
+}
+```
+
+In the first example, x and y are the return values. At the end of the function, we could simply write return to return the values of those two variables, rather than writing return x,y
+
 ---
 
 # Functions Without Return Values
@@ -108,6 +128,23 @@ func printMessage() {
 If there’s no return type, just omit it.
 
 ---
+
+# Ignoring Return Values
+
+A function can return a value that the caller doesn't care about. We can explicitly ignore variables by using an underscore
+
+For example:
+
+```go
+func getPoint() (x int, y int) {
+    return 3, 4
+}
+
+// ignore y value
+x, _ := getPoint()
+```
+
+Even though getPoint() returns two values, we can capture the first one and ignore the second. In Go, the blank identifier isn't just a convention; it's a real language feature that completely discards the value.
 
 # Variadic Functions (Unlimited Arguments)
 
