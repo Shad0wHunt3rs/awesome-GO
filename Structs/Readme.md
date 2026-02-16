@@ -451,25 +451,40 @@ Used for:
 
 Go arranges struct fields in memory with padding for alignment.
 
+
+the order of fields in a struct can have a big impact on memory usage. This is the same struct as above, but poorly designed:
+
 Example:
 
 ```go
-type Example struct {
-    A bool   // 1 byte
-    B int64  // 8 bytes
+type stats struct {
+    NumPosts uint8
+	Reach    uint16
+	NumLikes uint8
 }
 ```
 
-Padding added between A and B.
+```bash
+Size of stats struct: 6 bytes
+```
+
+Notice that Go has "aligned" the fields, meaning that it has added some padding (wasted space) to make up for the size difference between the uint16 and uint8 types. It's done for execution speed, but it can lead to increased memory usage.
+
 
 Optimization:
 
 ```go
-type Example struct {
-    B int64
-    A bool
+type stats struct {
+	Reach    uint16
+	NumPosts uint8
+	NumLikes uint8
 }
 ```
+
+```bash
+Size of stats struct: 4 bytes
+```
+
 
 Better memory alignment.
 
