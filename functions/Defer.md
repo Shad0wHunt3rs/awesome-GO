@@ -141,9 +141,6 @@ Because the anonymous function reads x at execution time, not at defer time.
 | Use Case               | Simple cleanup, fixed arguments                       | Dynamic cleanup, logging, or complex actions                       |
 | Example                | `x := 10; defer fmt.Println(x); x = 20` → prints `10` | `x := 10; defer func() { fmt.Println(x) }(); x = 20` → prints `20` |
 
-
-
-
 ---
 
 ## With Named Returns

@@ -398,7 +398,7 @@ Must be in `package main`.
 
 ---
 
-# First-Class Functions
+# First-Class Functions (function as data)
 
 In Go:
 
@@ -410,6 +410,12 @@ In Go:
 ```go
 var operation func(int, int) int
 ```
+
+>[!NOTE]
+> First-Class Function is an function that is being passsed as an data (variable)
+
+> The Higher order function is an function that is using the First-Class Function 
+
 
 ---
 
