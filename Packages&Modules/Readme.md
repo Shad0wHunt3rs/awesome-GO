@@ -17,7 +17,7 @@ package packagename
 
 ---
 
-## 1.1 The `main` Package
+## The `main` Package
 
 ```go
 package main
@@ -43,7 +43,7 @@ If a package is NOT `main`, it becomes a **library package**.
 
 ---
 
-## 1.2 Custom Packages
+## Custom Packages
 
 Example project:
 
@@ -82,7 +82,7 @@ func main() {
 
 ---
 
-## 1.3 Exported vs Unexported Identifiers
+## Exported vs Unexported Identifiers
 
 This is VERY IMPORTANT.
 
@@ -106,7 +106,7 @@ This is enforced by the compiler.
 
 ---
 
-## 1.4 Package Scope
+## Package Scope
 
 Each package has its own namespace.
 
@@ -120,7 +120,7 @@ No conflict unless imported with same name.
 
 ---
 
-## 1.5 Importing Packages
+## Importing Packages
 
 ### Standard Library
 
@@ -190,7 +190,7 @@ This pollutes namespace. Avoid it.
 
 ---
 
-## 1.6 `init()` Function
+## `init()` Function
 
 Every package can have:
 
@@ -212,7 +212,7 @@ If multiple files → init runs in file order.
 
 ---
 
-## 1.7 Package Initialization Order (Important)
+## Package Initialization Order (Important)
 
 Go builds a dependency graph.
 
@@ -229,7 +229,26 @@ No circular imports allowed.
 
 ---
 
-# 2️⃣ Modules in Go
+>[!NOTE]
+> In Go, each folder corresponds to a single package, so all `.go` files in the same directory must declare the same `package` name. Mixing package names in one folder will cause a compiler error. For example, if you have `add.go` and `mul.go`, both must say `package mathutils`. You cannot put `package helper` in the same folder. Go treats the folder as one compilation unit, which keeps builds simple and fast. If you need another package, create a separate folder. The only exception is test files: a file ending in `_test.go` can use `packagename_test` to test exported functions. The key rule to remember is: **Directory = Package**.
+
+example:
+
+```bash
+/mathutils
+    add.go
+    sub.go
+```
+
+Both: 
+
+```bash
+package mathutils
+```
+
+
+
+# Modules in Go
 
 Now we go deeper.
 
