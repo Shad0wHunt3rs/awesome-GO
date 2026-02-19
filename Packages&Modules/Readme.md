@@ -252,8 +252,6 @@ package mathutils
 
 Now we go deeper.
 
-## What is a Module?
-
 A **module** is a collection of related packages.
 
 It defines:
@@ -267,7 +265,7 @@ Now → Go Modules (modern system).
 
 ---
 
-## 2.1 Creating a Module
+## Creating a Module
 
 Inside your project folder:
 
@@ -296,7 +294,7 @@ This defines:
 
 ---
 
-## 2.2 Why Module Path Matters
+## Why Module Path Matters
 
 When importing:
 
@@ -310,7 +308,7 @@ Even locally, Go uses module path.
 
 ---
 
-## 2.3 `go.mod` File
+## `go.mod` File
 
 Example:
 
@@ -331,7 +329,7 @@ It contains:
 
 ---
 
-## 2.4 `go.sum`
+## `go.sum`
 
 Automatically generated.
 
@@ -345,7 +343,7 @@ Never manually edit it.
 
 ---
 
-## 2.5 Adding Dependencies
+## Adding Dependencies
 
 If you write:
 
@@ -367,7 +365,7 @@ Go:
 
 ---
 
-## 2.6 `go mod tidy`
+## `go mod tidy`
 
 Very important command.
 
@@ -381,7 +379,7 @@ Always run before pushing code.
 
 ---
 
-## 2.7 Versioning System
+## Versioning System
 
 Go uses Semantic Versioning:
 
@@ -401,7 +399,7 @@ v1.2.3
 
 ---
 
-## 2.8 Module Proxy & Caching
+## Module Proxy & Caching
 
 Go downloads modules into:
 
@@ -419,7 +417,7 @@ So builds are reproducible.
 
 ---
 
-# 3️⃣ Internal Packages
+# Internal Packages
 
 If you create:
 
@@ -436,161 +434,5 @@ Packages inside `internal/`:
 This enforces private module-level boundaries.
 
 Used in large systems.
-
----
-
-# 4️⃣ Difference: Package vs Module
-
-| Package                 | Module                 |
-| ----------------------- | ---------------------- |
-| Collection of .go files | Collection of packages |
-| Directory level         | Project level          |
-| Namespace unit          | Dependency unit        |
-| Controls visibility     | Controls versioning    |
-
----
-
-# 5️⃣ Advanced Concepts
-
-## 5.1 Replace Directive
-
-In `go.mod`:
-
-```go
-replace github.com/old/package => ../local/package
-```
-
-Used for:
-
-* Local development
-* Testing modified dependencies
-
----
-
-## 5.2 Require Directive
-
-```go
-require github.com/gorilla/mux v1.8.0
-```
-
-Defines dependency version.
-
----
-
-## 5.3 Indirect Dependencies
-
-```go
-require github.com/pkg/errors v0.9.1 // indirect
-```
-
-Means:
-Dependency of your dependency.
-
----
-
-## 5.4 Multi-Module Workspace (Go 1.18+)
-
-Use:
-
-```bash
-go work init
-```
-
-Creates:
-
-```
-go.work
-```
-
-Allows multiple modules in one workspace.
-
-Used in monorepos.
-
----
-
-# 6️⃣ How Go Compiler Handles Packages
-
-When building:
-
-1. Parses imports
-2. Builds dependency graph
-3. Compiles bottom-up
-4. Caches compiled packages
-5. Links into binary
-
-This is why Go builds are fast.
-
----
-
-# 7️⃣ Real Project Structure (Professional)
-
-```
-myapp/
-│
-├── cmd/
-│   └── server/
-│       └── main.go
-│
-├── internal/
-│   ├── auth/
-│   └── database/
-│
-├── pkg/
-│   └── utils/
-│
-├── go.mod
-└── go.sum
-```
-
-### Explanation:
-
-* `cmd/` → entry points
-* `internal/` → private app logic
-* `pkg/` → reusable libraries
-* `go.mod` → module root
-
----
-
-# 8️⃣ Common Beginner Mistakes
-
-1. Forgetting `go mod init`
-2. Using relative imports (not allowed)
-3. Circular imports
-4. Not capitalizing exported functions
-5. Manually editing go.sum
-
----
-
-# 9️⃣ Important Commands Summary
-
-```bash
-go mod init
-go mod tidy
-go mod download
-go mod vendor
-go list
-go build
-go install
-```
-
----
-
-# 🔟 Mental Model (Very Important)
-
-Think like this:
-
-* **File** → contains code
-* **Package** → group of files (namespace)
-* **Module** → group of packages (dependency unit)
-* **Workspace** → group of modules
-
-Hierarchy:
-
-```
-Workspace
-  └── Module
-        └── Package
-              └── File
-```
 
 ---
