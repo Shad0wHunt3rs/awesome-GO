@@ -148,7 +148,7 @@ Means:
 
 ---
 
-# 6. Generic slice function
+# Generic slice function
 
 Example — contains:
 
@@ -169,7 +169,7 @@ Because `==` requires comparable types.
 
 ---
 
-# 7. Built-in constraints
+# Built-in constraints
 
 Important ones:
 
@@ -190,7 +190,7 @@ Alias for `interface{}`.
 
 ---
 
-# 8. Custom constraints (VERY IMPORTANT)
+# Custom constraints (VERY IMPORTANT)
 
 You can define your own constraint interface.
 
@@ -212,7 +212,7 @@ This is core generics design pattern.
 
 ---
 
-# 9. Generic data structures
+# Generic data structures
 
 Huge use case.
 
@@ -244,7 +244,7 @@ s.Push(10)
 
 ---
 
-# 10. Methods with generics
+# Methods with generics
 
 Receiver must include type parameter.
 
@@ -256,7 +256,7 @@ Because Stack itself is generic.
 
 ---
 
-# 11. Generic map wrapper example
+# Generic map wrapper example
 
 ```go
 type Cache[K comparable, V any] struct {
@@ -270,7 +270,7 @@ func NewCache[K comparable, V any]() *Cache[K,V] {
 
 ---
 
-# 12. Zero value problem
+# Zero value problem
 
 Generic types have zero values.
 
@@ -296,7 +296,7 @@ Important idiom.
 
 ---
 
-# 13. Type sets (deep concept)
+# Type sets (deep concept)
 
 Constraint interface defines a **type set**.
 
@@ -316,7 +316,7 @@ This is key generics theory.
 
 ---
 
-# 14. Limitations of Go generics
+# Limitations of Go generics
 
 Important:
 
@@ -342,7 +342,7 @@ Go intentionally simple.
 
 ---
 
-# 15. When to use generics
+# When to use generics
 
 Use generics when:
 
@@ -359,7 +359,7 @@ Do NOT use when:
 
 ---
 
-# 16. Generics vs interface (very important)
+# Generics vs interface (very important)
 
 ### Generics
 
@@ -377,15 +377,4 @@ They solve different problems.
 
 ---
 
-# 17. Mental model (very important)
 
-Think:
-
-```
-Generics = type abstraction
-Interfaces = behavior abstraction
-```
-
-This distinction is key for advanced Go design.
-
----
